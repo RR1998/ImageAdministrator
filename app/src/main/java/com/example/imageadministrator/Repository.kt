@@ -2,7 +2,7 @@ package com.example.imageadministrator
 
 import androidx.lifecycle.MutableLiveData
 import com.example.imageadministrator.network.PhotosApi
-import com.example.imageadministrator.network.PhotosModel
+import com.example.imageadministrator.models.PhotosModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

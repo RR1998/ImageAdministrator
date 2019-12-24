@@ -1,4 +1,4 @@
-package com.example.imageadministrator
+package com.example.imageadministrator.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.imageadministrator.R
+import com.example.imageadministrator.adapter.ImageAdapter
 import com.example.imageadministrator.databinding.ActivityMainBinding
 import com.example.imageadministrator.viewmodels.MainViewModel
 
@@ -17,12 +19,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_main
+        )
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         binding.viewModel = viewModel
         showData()
     }
-
 
     private fun showData(){
         binding.viewModel?.getListPhoto()?.observe(this, Observer {

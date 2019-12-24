@@ -1,4 +1,4 @@
-package com.example.imageadministrator.network
+package com.example.imageadministrator.models
 
 data class PhotosModel(
     val albumId: Int,

@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
-import com.example.imageadministrator.DetailActivity
-import com.example.imageadministrator.network.PhotosModel
+import com.example.imageadministrator.activities.DetailActivity
+import com.example.imageadministrator.models.PhotosModel
 
 class PhotosViewModel(var photoItem : PhotosModel) : ViewModel(){
     //TODO remove context as parameter
