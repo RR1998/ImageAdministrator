@@ -3,8 +3,11 @@ package com.example.imageadministrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.imageadministrator.databinding.ImageListBinding
 import com.example.imageadministrator.network.PhotosModel
 import com.example.imageadministrator.overview.PhotosViewModel
@@ -13,11 +16,6 @@ class ImageAdapter(imageList: List<PhotosModel>) : RecyclerView.Adapter<ImageAda
 
     private var images = imageList
 
-/*    fun recyclerAdapter(images: MutableList<PhotosModel>) {
-        this.images = images
-    }*/
-
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = images[position]
         holder.bind(item)
@@ -25,7 +23,7 @@ class ImageAdapter(imageList: List<PhotosModel>) : RecyclerView.Adapter<ImageAda
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return  ViewHolder(layoutInflater.inflate(R.layout.image_list, parent, false))
+        return ViewHolder(layoutInflater.inflate(R.layout.image_list, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -36,6 +34,14 @@ class ImageAdapter(imageList: List<PhotosModel>) : RecyclerView.Adapter<ImageAda
         private val binding: ImageListBinding? = DataBindingUtil.bind(view)
         fun bind(image: PhotosModel) {
             binding?.photosViewModel = PhotosViewModel(image)
+            image.thumbnailUrl.let {
+                val imgUri = it.toUri().buildUpon().scheme("https").build()
+                if (binding != null) {
+                    Glide.with(binding.imageContained.context)
+                        .load(imgUri)
+                        .into(binding.imageContained)
+                }
+            }
         }
     }
 }
