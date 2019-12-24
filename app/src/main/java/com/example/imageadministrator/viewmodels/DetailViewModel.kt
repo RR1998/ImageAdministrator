@@ -1,4 +1,4 @@
-package com.example.imageadministrator.overview
+package com.example.imageadministrator.viewmodels
 
 import androidx.lifecycle.ViewModel
 

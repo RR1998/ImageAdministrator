@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.imageadministrator.overview.MainViewModel" />
+            type="com.example.imageadministrator.viewmodels.MainViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

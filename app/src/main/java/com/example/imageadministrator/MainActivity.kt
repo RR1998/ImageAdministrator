@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imageadministrator.databinding.ActivityMainBinding
-import com.example.imageadministrator.overview.MainViewModel
+import com.example.imageadministrator.viewmodels.MainViewModel
 
 
 class MainActivity : AppCompatActivity() {

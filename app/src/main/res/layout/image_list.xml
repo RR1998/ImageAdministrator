@@ -6,7 +6,7 @@
 
         <variable
             name="photosViewModel"
-            type="com.example.imageadministrator.overview.PhotosViewModel" />
+            type="com.example.imageadministrator.viewmodels.PhotosViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

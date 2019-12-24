@@ -3,14 +3,13 @@ package com.example.imageadministrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imageadministrator.databinding.ImageListBinding
 import com.example.imageadministrator.network.PhotosModel
-import com.example.imageadministrator.overview.PhotosViewModel
+import com.example.imageadministrator.viewmodels.PhotosViewModel
 
 class ImageAdapter(imageList: List<PhotosModel>) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 

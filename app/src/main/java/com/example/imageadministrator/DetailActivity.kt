@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.example.imageadministrator.databinding.ActivityMainBinding
-import com.example.imageadministrator.overview.DetailViewModel
+import com.example.imageadministrator.viewmodels.DetailViewModel
 
 class DetailActivity: AppCompatActivity() {
 
