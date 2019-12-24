@@ -1,18 +1,18 @@
 package com.example.imageadministrator
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imageadministrator.databinding.ActivityMainBinding
 import com.example.imageadministrator.overview.MainViewModel
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +23,12 @@ class MainActivity : AppCompatActivity() {
         showData()
     }
 
-    fun showData(){
+
+    private fun showData(){
         binding.viewModel?.getListPhoto()?.observe(this, Observer {
-            Log.v("aaaaa", "${it.size}")
+            val adapter = ImageAdapter(it)
+            binding.photoViews.layoutManager = LinearLayoutManager(this)
+            binding.photoViews.adapter = adapter
         })
 
     }
