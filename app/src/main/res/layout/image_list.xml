@@ -31,6 +31,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_tittle"
-            android:onClick="@{()->photosViewModel.onClick(context)}"/>
+            android:onClick="@{()->photosViewModel.onClick()}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
