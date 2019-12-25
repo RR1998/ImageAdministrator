@@ -3,8 +3,8 @@ package com.example.imageadministrator.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imageadministrator.R
@@ -12,7 +12,7 @@ import com.example.imageadministrator.databinding.ImageListBinding
 import com.example.imageadministrator.models.PhotosModel
 import com.example.imageadministrator.viewmodels.PhotosViewModel
 
-class ImageAdapter(imageList: List<PhotosModel>) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+class ImageAdapter(imageList: List<PhotosModel>, var clickEvent: MutableLiveData<PhotosModel>) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
     private var images = imageList
 
@@ -33,12 +33,11 @@ class ImageAdapter(imageList: List<PhotosModel>) : RecyclerView.Adapter<ImageAda
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding: ImageListBinding? = DataBindingUtil.bind(view)
         fun bind(image: PhotosModel) {
-            binding?.photosViewModel = PhotosViewModel(image)
+            binding?.photosViewModel = PhotosViewModel(image, clickEvent)
             image.thumbnailUrl.let {
-                val imgUri = it.toUri().buildUpon().scheme("https").build()
                 if (binding != null) {
                     Glide.with(binding.imageContained.context)
-                        .load(imgUri)
+                        .load(it)
                         .into(binding.imageContained)
                 }
             }
