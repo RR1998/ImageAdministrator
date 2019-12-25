@@ -7,8 +7,10 @@ import com.example.imageadministrator.models.PhotosModel
 
 class MainViewModel : ViewModel() {
 
+    var itemClickEvent =  MutableLiveData<PhotosModel>()
     var dataList : Repository = Repository()
     fun getListPhoto(): MutableLiveData<List<PhotosModel>> {
         return dataList.getPhotoData()
     }
+
 }
