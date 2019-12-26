@@ -35,4 +35,12 @@ class Repository(private val database: PhotosDatabase?) {
 
         return liveData
     }
+
+    suspend fun insertPhotos() {
+        withContext(Dispatchers.IO) {
+            liveData.value?.forEach {
+                database?.daoInterface()?.insert(it)
+            }
+        }
+    }
 }
