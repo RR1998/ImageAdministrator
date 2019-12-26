@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         val bundle = Bundle()
 
-        bundle.putParcelable("imageModel", it)
+        bundle.putParcelable(VariablesObject.BUNDLE_KEY, it)
         detailClassIntent.putExtras(bundle)
         ContextCompat.startActivity(this, detailClassIntent, null)
     }

@@ -22,7 +22,7 @@ class DetailActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
-        bundleReceived?.getParcelable<PhotosModel>("imageModel").let {  photos = it}
+        bundleReceived?.getParcelable<PhotosModel>(VariablesObject.BUNDLE_KEY).let {  photos = it}
 
         binding = DataBindingUtil.setContentView(this,
             R.layout.detail_layout
