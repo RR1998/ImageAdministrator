@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imageadministrator.R
 import com.example.imageadministrator.adapter.ImageAdapter
+import com.example.imageadministrator.database.PhotosDatabase
 import com.example.imageadministrator.databinding.ActivityMainBinding
 import com.example.imageadministrator.models.PhotosModel
 import com.example.imageadministrator.viewmodels.MainViewModel
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(MainViewModel(database = PhotosDatabase.getInstance(this))::class.java)
         binding.mainActivityViewModel =  viewModel
         viewModel.getListPhoto().observe(this, photosListObserver())
         viewModel.itemClickEvent.observe(this, clickObserver())
