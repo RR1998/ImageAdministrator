@@ -2,7 +2,7 @@ package com.example.imageadministrator.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.imageadministrator.Repository
+import com.example.imageadministrator.repository.Repository
 import com.example.imageadministrator.database.PhotosDatabase
 import com.example.imageadministrator.models.PhotosModel
 import kotlinx.coroutines.CoroutineScope
@@ -19,7 +19,8 @@ class MainViewModel(private val database: PhotosDatabase?) : ViewModel() {
 
     var itemClickEvent: MutableLiveData<PhotosModel> = MutableLiveData()
 
-    private var dataListRepository: Repository = Repository(database)
+    private var dataListRepository: Repository =
+        Repository(database)
 
     private var mainViewModelJob = Job()
 
@@ -31,10 +32,13 @@ class MainViewModel(private val database: PhotosDatabase?) : ViewModel() {
     }
 
     fun getListPhoto(): MutableLiveData<List<PhotosModel>> {
+
         val dataList = dataListRepository.getPhotoData()
+
         uiScope.launch {
             dataListRepository.insertPhotos()
         }
+
         return dataList
     }
 }

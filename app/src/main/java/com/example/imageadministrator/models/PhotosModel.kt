@@ -25,14 +25,17 @@ data class PhotosModel(
 
     @ColumnInfo(name = "photo_thumbnail_url")
     val thumbnailUrl: String? = ""
-): Parcelable {
+
+) : Parcelable {
 
     constructor(parcel: Parcel) : this(
+
         parcel.readInt(),
         parcel.readInt(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
+
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -48,6 +51,7 @@ data class PhotosModel(
     }
 
     companion object CREATOR : Parcelable.Creator<PhotosModel> {
+
         override fun createFromParcel(parcel: Parcel): PhotosModel {
             return PhotosModel(parcel)
         }

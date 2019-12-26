@@ -12,7 +12,8 @@ import com.example.imageadministrator.databinding.ImageListBinding
 import com.example.imageadministrator.models.PhotosModel
 import com.example.imageadministrator.viewmodels.PhotosViewModel
 
-class ImageAdapter(imageList: List<PhotosModel>, var clickEvent: MutableLiveData<PhotosModel>) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+class ImageAdapter(imageList: List<PhotosModel>, var clickEvent: MutableLiveData<PhotosModel>) :
+    RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
     private var images = imageList
 

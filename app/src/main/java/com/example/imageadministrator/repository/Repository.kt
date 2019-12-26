@@ -1,4 +1,4 @@
-package com.example.imageadministrator
+package com.example.imageadministrator.repository
 
 import androidx.lifecycle.MutableLiveData
 import com.example.imageadministrator.database.PhotosDatabase
@@ -37,7 +37,9 @@ class Repository(private val database: PhotosDatabase?) {
     }
 
     suspend fun insertPhotos() {
+
         withContext(Dispatchers.IO) {
+
             liveData.value?.forEach {
                 database?.daoInterface()?.insert(it)
             }

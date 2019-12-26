@@ -11,10 +11,12 @@ object PhotosApi {
     private const val imageUrl: String = "https://jsonplaceholder.typicode.com/"
 
     fun getRetrofitInstance(): GetDataService {
+
         retrofit = Retrofit.Builder()
             .baseUrl(imageUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         return retrofit.create(GetDataService::class.java)
     }
 }

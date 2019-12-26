@@ -8,9 +8,10 @@ import com.example.imageadministrator.models.PhotosModel
 
 @Dao
 interface PhotosDataBaseDao {
+
     @Insert
     fun insert(photo: PhotosModel)
 
     @Query("SELECT * FROM photos LIMIT 25")
-    fun getPhotos():LiveData<List<PhotosModel>>
+    fun getPhotos(): LiveData<List<PhotosModel>>
 }

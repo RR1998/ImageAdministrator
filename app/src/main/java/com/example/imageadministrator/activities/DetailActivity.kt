@@ -11,20 +11,21 @@ import com.example.imageadministrator.databinding.DetailLayoutBinding
 import com.example.imageadministrator.models.PhotosModel
 import com.example.imageadministrator.viewmodels.DetailViewModel
 
-class DetailActivity: AppCompatActivity() {
+class DetailActivity : AppCompatActivity() {
 
-    lateinit var binding: DetailLayoutBinding
+    private lateinit var binding: DetailLayoutBinding
 
-    lateinit var detailViewModel: DetailViewModel
+    private lateinit var detailViewModel: DetailViewModel
 
-    private var photos:PhotosModel? = null
+    private var photos: PhotosModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
-        bundleReceived?.getParcelable<PhotosModel>(VariablesObject.BUNDLE_KEY).let {  photos = it}
+        bundleReceived?.getParcelable<PhotosModel>(VariablesObject.BUNDLE_KEY).let { photos = it }
 
-        binding = DataBindingUtil.setContentView(this,
+        binding = DataBindingUtil.setContentView(
+            this,
             R.layout.detail_layout
         )
 
