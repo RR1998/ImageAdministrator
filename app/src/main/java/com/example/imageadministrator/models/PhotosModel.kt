@@ -2,14 +2,29 @@ package com.example.imageadministrator.models
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+
+@Entity(tableName = "photos")
 data class PhotosModel(
 
-    val albumId: Int,
-    val id: Int,
-    val title: String?,
-    val url: String?,
-    val thumbnailUrl: String?
+    @PrimaryKey
+    @ColumnInfo(name = "photo_id")
+    val id: Int = 0,
+
+    @ColumnInfo(name = "album_id")
+    var albumId: Int = 0,
+
+    @ColumnInfo(name = "photo_title")
+    val title: String? = "",
+
+    @ColumnInfo(name = "photo_url")
+    val url: String? = "",
+
+    @ColumnInfo(name = "photo_thumbnail_url")
+    val thumbnailUrl: String? = ""
 ): Parcelable {
 
     constructor(parcel: Parcel) : this(
