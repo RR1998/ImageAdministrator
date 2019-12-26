@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        binding.viewModel =  viewModel
+        binding.mainActivityViewModel =  viewModel
         viewModel.getListPhoto().observe(this, photosListObserver())
         viewModel.itemClickEvent.observe(this, clickObserver())
     }
