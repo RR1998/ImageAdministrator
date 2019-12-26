@@ -14,8 +14,11 @@ import com.example.imageadministrator.viewmodels.DetailViewModel
 class DetailActivity: AppCompatActivity() {
 
     lateinit var binding: DetailLayoutBinding
+
     lateinit var detailViewModel: DetailViewModel
+
     private var photos:PhotosModel? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
@@ -24,10 +27,12 @@ class DetailActivity: AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,
             R.layout.detail_layout
         )
+
         detailViewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
         binding.detailViewModel = detailViewModel
         setImageUrl(binding.detailedImage, photos)
     }
+
     private fun setImageUrl(view: ImageView, detailModel: PhotosModel?) {
         Glide.with(view.context).load(detailModel?.url)
             .into(view)

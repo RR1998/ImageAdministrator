@@ -18,6 +18,7 @@ import com.example.imageadministrator.viewmodels.MainViewModel
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
     lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,
             R.layout.activity_main
         )
+
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         binding.viewModel =  viewModel
         viewModel.getListPhoto().observe(this, photosListObserver())
@@ -36,7 +38,9 @@ class MainActivity : AppCompatActivity() {
             this,
             DetailActivity::class.java
         )
+
         val bundle = Bundle()
+
         bundle.putParcelable("imageModel", it)
         detailClassIntent.putExtras(bundle)
         ContextCompat.startActivity(this, detailClassIntent, null)

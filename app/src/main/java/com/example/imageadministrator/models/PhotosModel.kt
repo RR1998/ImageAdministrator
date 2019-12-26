@@ -4,12 +4,14 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class PhotosModel(
+
     val albumId: Int,
     val id: Int,
     val title: String?,
     val url: String?,
     val thumbnailUrl: String?
 ): Parcelable {
+
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readInt(),
