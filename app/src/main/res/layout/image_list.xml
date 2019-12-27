@@ -10,27 +10,29 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/commentsColor">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/image_tittle"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/small_width"
             android:layout_height="wrap_content"
             android:text="@{photosViewModel.photoItem.title}"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/detailsCommentsColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image_contained"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/image_contained"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_contained"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_width="@dimen/small_width"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->photosViewModel.onClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_tittle"
-            android:onClick="@{()->photosViewModel.onClick()}"/>
+            app:layout_constraintStart_toEndOf="@id/image_tittle"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
