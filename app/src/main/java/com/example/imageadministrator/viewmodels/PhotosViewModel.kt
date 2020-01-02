@@ -12,7 +12,7 @@ class PhotosViewModel(
     fun onClick() {
 
         clickEvent.value = photoItem
-        
+
     }
 
 }

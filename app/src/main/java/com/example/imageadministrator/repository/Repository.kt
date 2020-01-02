@@ -12,12 +12,10 @@ import retrofit2.Response
 
 class Repository(private val database: PhotosDatabase?) {
 
-    private val client = PhotosApi.getRetrofitInstance()
-
     val liveData = MutableLiveData<List<PhotosModel>>()
 
     fun getPhotoData(): MutableLiveData<List<PhotosModel>> {
-
+        val client = PhotosApi.getRetrofitInstance()
 
         client.getPhotos().enqueue(object : Callback<List<PhotosModel>> {
 
