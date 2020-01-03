@@ -1,2 +1,2 @@
-include ':app', ':core', ':framework'
+include ':app', ':core', ':data'
 rootProject.name='ImageAdministrator'
