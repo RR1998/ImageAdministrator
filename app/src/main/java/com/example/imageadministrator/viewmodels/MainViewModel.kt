@@ -2,15 +2,15 @@ package com.example.imageadministrator.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.framework.datasource.Repository
-import com.example.framework.database.PhotosDatabase
+import com.example.framework.datasource.ModelSourceImplementation
+import com.example.framework.database.PhotosGetDatabase
 import com.example.framework.models.PhotosEntityModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val database: PhotosDatabase?) : ViewModel() {
+class MainViewModel(private val database: PhotosGetDatabase?) : ViewModel() {
 
     @Suppress("zero parameters constructor error")
     constructor() : this(
@@ -19,8 +19,8 @@ class MainViewModel(private val database: PhotosDatabase?) : ViewModel() {
 
     var itemClickEvent: MutableLiveData<PhotosEntityModel> = MutableLiveData()
 
-    private var dataListRepository: Repository =
-        Repository(database)
+    private var dataListModelSourceImplementation: ModelSourceImplementation =
+        ModelSourceImplementation(database)
 
     private var mainViewModelJob = Job()
 
@@ -33,10 +33,10 @@ class MainViewModel(private val database: PhotosDatabase?) : ViewModel() {
 
     fun getListPhoto(): MutableLiveData<List<PhotosEntityModel>> {
 
-        val dataList = dataListRepository.getPhotoData()
+        val dataList = dataListModelSourceImplementation.getPhotoData()
 
         uiScope.launch {
-            dataListRepository.insertPhotos()
+            dataListModelSourceImplementation.insertPhotos()
         }
 
         return dataList

@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imageadministrator.R
 import com.example.imageadministrator.adapter.ImageAdapter
-import com.example.framework.database.PhotosDatabase
+import com.example.framework.database.PhotosGetDatabase
 import com.example.imageadministrator.databinding.ActivityMainBinding
 import com.example.framework.models.PhotosEntityModel
 import com.example.imageadministrator.viewmodels.MainViewModel
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         viewModel = ViewModelProviders.of(this)
-            .get(MainViewModel(database = PhotosDatabase.getInstance(this))::class.java)
+            .get(MainViewModel(database = PhotosGetDatabase.getInstance(this))::class.java)
 
         binding.mainActivityViewModel = viewModel
 
