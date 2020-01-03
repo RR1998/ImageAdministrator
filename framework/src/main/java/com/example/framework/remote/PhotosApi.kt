@@ -1,4 +1,4 @@
-package com.example.imageadministrator.network
+package com.example.framework.remote
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -1,17 +1,17 @@
-package com.example.imageadministrator.database
+package com.example.framework.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.imageadministrator.models.PhotosModel
+import com.example.framework.models.PhotosEntityModel
 
 @Dao
 interface PhotosDataBaseDao {
 
     @Insert
-    fun insert(photo: PhotosModel)
+    fun insert(photo: PhotosEntityModel)
 
     @Query("SELECT * FROM photos LIMIT 25")
-    fun getPhotos(): LiveData<List<PhotosModel>>
+    fun getPhotos(): LiveData<List<PhotosEntityModel>>
 }

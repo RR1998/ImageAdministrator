@@ -1,12 +1,12 @@
-package com.example.imageadministrator.database
+package com.example.framework.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.imageadministrator.models.PhotosModel
+import com.example.framework.models.PhotosEntityModel
 
-@Database(entities = [PhotosModel::class], version = 1, exportSchema = false)
+@Database(entities = [PhotosEntityModel::class], version = 1, exportSchema = false)
 abstract class PhotosDatabase : RoomDatabase() {
 
     abstract fun daoInterface(): PhotosDataBaseDao

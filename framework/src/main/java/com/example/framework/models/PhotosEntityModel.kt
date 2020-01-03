@@ -1,4 +1,4 @@
-package com.example.imageadministrator.models
+package com.example.framework.models
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "photos")
-data class PhotosModel(
+data class PhotosEntityModel(
 
     @PrimaryKey
     @ColumnInfo(name = "photo_id")
@@ -50,13 +50,13 @@ data class PhotosModel(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<PhotosModel> {
+    companion object CREATOR : Parcelable.Creator<PhotosEntityModel> {
 
-        override fun createFromParcel(parcel: Parcel): PhotosModel {
-            return PhotosModel(parcel)
+        override fun createFromParcel(parcel: Parcel): PhotosEntityModel {
+            return PhotosEntityModel(parcel)
         }
 
-        override fun newArray(size: Int): Array<PhotosModel?> {
+        override fun newArray(size: Int): Array<PhotosEntityModel?> {
             return arrayOfNulls(size)
         }
     }
