@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.imageadministrator.R
 import com.example.imageadministrator.databinding.DetailLayoutBinding
-import com.example.imageadministrator.models.PhotosModel
+import com.example.framework.models.PhotosEntityModel
 import com.example.imageadministrator.viewmodels.DetailViewModel
 
 class DetailActivity : AppCompatActivity() {
@@ -17,12 +17,12 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var detailViewModel: DetailViewModel
 
-    private var photos: PhotosModel? = null
+    private var photosEntity: PhotosEntityModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
-        bundleReceived?.getParcelable<PhotosModel>(VariablesObject.BUNDLE_KEY).let { photos = it }
+        bundleReceived?.getParcelable<PhotosEntityModel>(VariablesObject.BUNDLE_KEY).let { photosEntity = it }
 
         binding = DataBindingUtil.setContentView(
             this,
@@ -31,11 +31,11 @@ class DetailActivity : AppCompatActivity() {
 
         detailViewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
         binding.detailViewModel = detailViewModel
-        setImageUrl(binding.detailedImage, photos)
+        setImageUrl(binding.detailedImage, photosEntity)
     }
 
-    private fun setImageUrl(view: ImageView, detailModel: PhotosModel?) {
-        Glide.with(view.context).load(detailModel?.url)
+    private fun setImageUrl(view: ImageView, detailEntityModel: PhotosEntityModel?) {
+        Glide.with(view.context).load(detailEntityModel?.url)
             .into(view)
     }
 }

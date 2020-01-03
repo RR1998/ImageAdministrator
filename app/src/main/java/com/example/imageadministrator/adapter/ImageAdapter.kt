@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imageadministrator.R
 import com.example.imageadministrator.databinding.ImageListBinding
-import com.example.imageadministrator.models.PhotosModel
+import com.example.framework.models.PhotosEntityModel
 import com.example.imageadministrator.viewmodels.PhotosViewModel
 
-class ImageAdapter(imageList: List<PhotosModel>, var clickEvent: MutableLiveData<PhotosModel>) :
+class ImageAdapter(imageList: List<PhotosEntityModel>, var clickEvent: MutableLiveData<PhotosEntityModel>) :
     RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
     private var images = imageList
@@ -33,7 +33,7 @@ class ImageAdapter(imageList: List<PhotosModel>, var clickEvent: MutableLiveData
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding: ImageListBinding? = DataBindingUtil.bind(view)
-        fun bind(image: PhotosModel) {
+        fun bind(image: PhotosEntityModel) {
             binding?.photosViewModel = PhotosViewModel(image, clickEvent)
             image.thumbnailUrl.let {
                 if (binding != null) {

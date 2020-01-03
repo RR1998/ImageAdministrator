@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imageadministrator.R
 import com.example.imageadministrator.adapter.ImageAdapter
-import com.example.imageadministrator.database.PhotosDatabase
+import com.example.framework.database.PhotosDatabase
 import com.example.imageadministrator.databinding.ActivityMainBinding
-import com.example.imageadministrator.models.PhotosModel
+import com.example.framework.models.PhotosEntityModel
 import com.example.imageadministrator.viewmodels.MainViewModel
 
 
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.itemClickEvent.observe(this, clickObserver())
     }
 
-    private fun clickObserver() = Observer<PhotosModel> {
+    private fun clickObserver() = Observer<PhotosEntityModel> {
 
         val detailClassIntent = Intent(
             this,
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun photosListObserver() = Observer<List<PhotosModel>> {
+    private fun photosListObserver() = Observer<List<PhotosEntityModel>> {
 
         val adapter = ImageAdapter(it, viewModel.itemClickEvent)
 
