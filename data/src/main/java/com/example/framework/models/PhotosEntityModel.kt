@@ -5,6 +5,8 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.core.domain.PhotosCleanMapper
+import com.example.core.domain.PhotosCleanModel
 
 
 @Entity(tableName = "photos")
@@ -26,7 +28,7 @@ data class PhotosEntityModel(
     @ColumnInfo(name = "photo_thumbnail_url")
     val thumbnailUrl: String? = ""
 
-) : Parcelable {
+) : Parcelable, PhotosCleanMapper<PhotosCleanModel> {
 
     constructor(parcel: Parcel) : this(
 
@@ -60,4 +62,12 @@ data class PhotosEntityModel(
             return arrayOfNulls(size)
         }
     }
+
+    override fun cleaner(): PhotosCleanModel = PhotosCleanModel(
+        id,
+        albumId,
+        title,
+        url,
+        thumbnailUrl
+    )
 }
