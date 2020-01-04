@@ -1,11 +1,11 @@
 package com.example.framework.remote
 
-import com.example.framework.datasource.RetrofitInstance
+import com.example.framework.datasource.GetRetrofitInterface
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-object PhotosApi:RetrofitInstance {
+object PhotosApi : GetRetrofitInterface {
 
     lateinit var retrofit: Retrofit
 
