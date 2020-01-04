@@ -1,6 +1,8 @@
 package com.example.framework.datasource
 
 import androidx.lifecycle.MutableLiveData
+import com.example.core.domain.PhotosCleanModel
+import com.example.core.repository.PhotosDataSource
 import com.example.framework.database.PhotosGetDatabase
 import com.example.framework.models.PhotosEntityModel
 import com.example.framework.models.PhotosResponseModel
@@ -9,14 +11,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ModelSourceImplementation(private val database: PhotosGetDatabase?) {
+class ModelSourceImplementation(private val database: PhotosGetDatabase?) : PhotosDataSource {
 
-    val liveData = MutableLiveData<List<PhotosResponseModel>>()
+    override fun getPhotoData(): MutableLiveData<List<PhotosCleanModel>> {
 
-    fun getPhotoData(): MutableLiveData<List<PhotosResponseModel>> {
+        val liveDataCleanList = MutableLiveData<List<PhotosCleanModel>>()
+        val liveData = MutableLiveData<List<PhotosResponseModel>>()
         val client = PhotosApi.getRetrofitInstance()
 
         client.getPhotos().enqueue(object : Callback<List<PhotosResponseModel>> {
+
+            val cleanList = mutableListOf<PhotosCleanModel>()
 
             override fun onResponse(
                 call: Call<List<PhotosResponseModel>>,
@@ -25,19 +30,20 @@ class ModelSourceImplementation(private val database: PhotosGetDatabase?) {
                 liveData.value = response.body()
                 liveData.value = liveData.value?.subList(0, 24)
                 liveData.value?.forEach {
+                    cleanList.add(it.responseEntity().cleaner())
                     database?.daoInterface()?.insert(it.responseEntity())
                 }
                 val listItems: MutableList<PhotosEntityModel> = mutableListOf()
                 database?.daoInterface()?.getPhotos()?.forEach {
                     listItems.add(it)
                 }
+                liveDataCleanList.value = cleanList
             }
 
             override fun onFailure(call: Call<List<PhotosResponseModel>>, t: Throwable) {
             }
 
         })
-
-        return liveData
+        return liveDataCleanList
     }
 }
