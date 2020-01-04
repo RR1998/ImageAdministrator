@@ -1,6 +1,5 @@
 package com.example.framework.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -13,5 +12,5 @@ interface PhotosDataBaseDao {
     fun insert(photo: PhotosEntityModel)
 
     @Query("SELECT * FROM photos LIMIT 25")
-    fun getPhotos(): LiveData<List<PhotosEntityModel>>
+    fun getPhotos(): List<PhotosEntityModel>
 }
