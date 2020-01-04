@@ -2,9 +2,10 @@ package com.example.imageadministrator.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.framework.datasource.ModelSourceImplementation
 import com.example.framework.database.PhotosGetDatabase
+import com.example.framework.datasource.ModelSourceImplementation
 import com.example.framework.models.PhotosEntityModel
+import com.example.framework.models.PhotosResponseModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -31,7 +32,7 @@ class MainViewModel(private val database: PhotosGetDatabase?) : ViewModel() {
         mainViewModelJob.cancel()
     }
 
-    fun getListPhoto(): MutableLiveData<List<PhotosEntityModel>> {
+    fun getListPhoto(): MutableLiveData<List<PhotosResponseModel>> {
 
         val dataList = dataListModelSourceImplementation.getPhotoData()
 
