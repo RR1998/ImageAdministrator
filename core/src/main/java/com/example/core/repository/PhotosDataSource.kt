@@ -5,5 +5,5 @@ import com.example.core.domain.PhotosCleanModel
 
 interface PhotosDataSource {
 
-    suspend fun getPhoto(): MutableLiveData<List<PhotosCleanModel>>
+    fun getPhotoData(): MutableLiveData<List<PhotosCleanModel>>
 }

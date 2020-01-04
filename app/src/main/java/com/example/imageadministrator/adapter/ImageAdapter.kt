@@ -7,15 +7,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.framework.models.PhotosEntityModel
-import com.example.framework.models.PhotosResponseModel
+import com.example.core.domain.PhotosCleanModel
 import com.example.imageadministrator.R
 import com.example.imageadministrator.databinding.ImageListBinding
 import com.example.imageadministrator.viewmodels.PhotosViewModel
 
 class ImageAdapter(
-    imageList: List<PhotosResponseModel>,
-    var clickEvent: MutableLiveData<PhotosEntityModel>
+    imageList: List<PhotosCleanModel>,
+    var clickEvent: MutableLiveData<PhotosCleanModel>
 ) :
     RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
@@ -23,7 +22,7 @@ class ImageAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = images[position]
-        holder.bind(item.responseEntity())
+        holder.bind(item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,7 +36,7 @@ class ImageAdapter(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding: ImageListBinding? = DataBindingUtil.bind(view)
-        fun bind(image: PhotosEntityModel) {
+        fun bind(image: PhotosCleanModel) {
             binding?.photosViewModel = PhotosViewModel(image, clickEvent)
             image.thumbnailUrl.let {
                 if (binding != null) {
