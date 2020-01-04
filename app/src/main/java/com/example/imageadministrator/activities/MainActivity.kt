@@ -8,9 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.core.domain.PhotosCleanModel
 import com.example.framework.database.PhotosGetDatabase
-import com.example.framework.models.PhotosEntityModel
-import com.example.framework.models.PhotosResponseModel
 import com.example.imageadministrator.R
 import com.example.imageadministrator.adapter.ImageAdapter
 import com.example.imageadministrator.databinding.ActivityMainBinding
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.itemClickEvent.observe(this, clickObserver())
     }
 
-    private fun clickObserver() = Observer<PhotosEntityModel> {
+    private fun clickObserver() = Observer<PhotosCleanModel> {
 
         val detailClassIntent = Intent(
             this,
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun photosListObserver() = Observer<List<PhotosResponseModel>> {
+    private fun photosListObserver() = Observer<List<PhotosCleanModel>> {
 
         val adapter = ImageAdapter(it, viewModel.itemClickEvent)
 
