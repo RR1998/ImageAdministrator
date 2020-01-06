@@ -9,11 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.core.domain.PhotosCleanModel
-import com.example.framework.database.PhotosGetDatabase
 import com.example.imageadministrator.R
 import com.example.imageadministrator.adapter.ImageAdapter
+import com.example.imageadministrator.databaseapplication.InitialValues
 import com.example.imageadministrator.databinding.ActivityMainBinding
 import com.example.imageadministrator.viewmodels.MainViewModel
+import com.example.imageadministrator.viewmodels.viewmodelfactory.FactoryMainViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,8 +32,10 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-        viewModel = ViewModelProviders.of(this)
-            .get(MainViewModel(database = PhotosGetDatabase.getInstance(this))::class.java)
+        val viewModelFactory = FactoryMainViewModel((application as InitialValues).useCase)
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(MainViewModel::class.java)
 
         binding.mainActivityViewModel = viewModel
 
