@@ -1,7 +1,7 @@
 package com.example.core.interactors
 
-import com.example.core.repository.PhotosRepository
+import com.example.core.repository.PhotosDataSourceRepository
 
-class GetPhotos(private val photosRepository: PhotosRepository) {
-    operator fun invoke() = photosRepository.getPhotos()
+class GetPhotos(private val photosRepository: PhotosDataSourceRepository) {
+    operator fun invoke() = photosRepository.getPhotoData()
 }
