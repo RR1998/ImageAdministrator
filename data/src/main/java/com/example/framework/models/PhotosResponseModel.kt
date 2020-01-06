@@ -26,7 +26,7 @@ class PhotosResponseModel(
         parcel.readString()
     )
 
-    override fun responseEntity(): PhotosEntityModel =
+    override fun responseToEntity(): PhotosEntityModel =
         PhotosEntityModel(id, albumId, title, url, thumbnailUrl)
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
