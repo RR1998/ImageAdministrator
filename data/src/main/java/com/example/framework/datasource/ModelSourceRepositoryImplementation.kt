@@ -11,6 +11,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * ModelSourceRepositoryImplementation uses the api and database instances to download and return the items to show in the views
+ */
+
 class ModelSourceRepositoryImplementation(val client: PhotosApi, var database: PhotosGetDatabase) :
     PhotosDataSourceRepository {
 
@@ -33,7 +37,7 @@ class ModelSourceRepositoryImplementation(val client: PhotosApi, var database: P
                 liveData.value = response.body()
                 liveData.value = liveData.value?.subList(0, 24)
                 liveData.value?.forEach {
-                    cleanList.add(it.responseToEntity().cleaner())
+                    cleanList.add(it.mapper().mapper())
                 }
 
                 uiScope.launch {
@@ -51,7 +55,7 @@ class ModelSourceRepositoryImplementation(val client: PhotosApi, var database: P
     suspend fun savePhotos(cleanList: List<PhotosResponseModel>?) {
         withContext(Dispatchers.IO) {
             cleanList?.forEach {
-                database.daoInterface().insert(it.responseToEntity())
+                database.daoInterface().insert(it.mapper())
             }
         }
     }

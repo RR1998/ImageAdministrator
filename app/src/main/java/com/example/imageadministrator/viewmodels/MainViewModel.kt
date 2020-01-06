@@ -6,6 +6,10 @@ import com.example.core.domain.PhotosCleanModel
 import com.example.core.interactors.GetPhotos
 import kotlinx.coroutines.Job
 
+/**
+ * MainViewModel its the class that calls the useCase to fill the view
+ */
+
 class MainViewModel(var useCase: GetPhotos) : ViewModel() {
 
     var itemClickEvent: MutableLiveData<PhotosCleanModel> = MutableLiveData()

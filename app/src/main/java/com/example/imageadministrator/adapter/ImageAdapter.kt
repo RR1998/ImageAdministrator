@@ -12,6 +12,10 @@ import com.example.imageadministrator.R
 import com.example.imageadministrator.databinding.ImageListBinding
 import com.example.imageadministrator.viewmodels.PhotosViewModel
 
+/**
+ * ImageAdapter is the class that fills the RecyclerViews to add it into the MainActivity view
+ */
+
 class ImageAdapter(
     imageList: List<PhotosCleanModel>,
     var clickEvent: MutableLiveData<PhotosCleanModel>

@@ -6,6 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.framework.models.PhotosEntityModel
 
+/**
+ * PhotosGetDatabase implements the RoomDatabase class and creates an instances from it
+ */
+
 @Database(entities = [PhotosEntityModel::class], version = 1, exportSchema = false)
 abstract class PhotosGetDatabase : RoomDatabase() {
 

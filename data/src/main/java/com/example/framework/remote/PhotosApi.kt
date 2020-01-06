@@ -4,6 +4,9 @@ import com.example.framework.datasource.GetRetrofitInterface
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * PhotosApi its an object that returns a retrofit instance
+ */
 
 object PhotosApi : GetRetrofitInterface {
 

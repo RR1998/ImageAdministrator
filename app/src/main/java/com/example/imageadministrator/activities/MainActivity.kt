@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         val bundle = Bundle()
 
-        bundle.putParcelable(VariablesObject.BUNDLE_KEY, it)
+        bundle.putString(VariablesObject.BUNDLE_KEY, it.url)
         detailClassIntent.putExtras(bundle)
         ContextCompat.startActivity(this, detailClassIntent, null)
 

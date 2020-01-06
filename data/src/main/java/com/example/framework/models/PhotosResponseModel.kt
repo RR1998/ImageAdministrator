@@ -1,9 +1,14 @@
 package com.example.framework.models
 
-import android.os.Parcel
-import android.os.Parcelable
+import com.example.core.domain.PhotosMapper
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+
+/**
+ * PhotosResponseModel it's a class that implement Serializable interface to use the gson annotations
+ * and implements the ResponseEntityInterface with the PhotosEntityModel to map the object
+ * and return a PhotosEntityModel
+ */
 
 class PhotosResponseModel(
     @SerializedName("id")
@@ -16,38 +21,13 @@ class PhotosResponseModel(
     val url: String? = "",
     @SerializedName("thumbnailUrl")
     val thumbnailUrl: String? = ""
-) : Serializable, ResponseEntityInterface<PhotosEntityModel>, Parcelable {
+) : Serializable, PhotosMapper<PhotosEntityModel> {
 
-    constructor(parcel: Parcel) : this(
-        parcel.readInt(),
-        parcel.readInt(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString()
+    override fun mapper(): PhotosEntityModel = PhotosEntityModel(
+        id,
+        albumId,
+        title,
+        url,
+        thumbnailUrl
     )
-
-    override fun responseToEntity(): PhotosEntityModel =
-        PhotosEntityModel(id, albumId, title, url, thumbnailUrl)
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(id)
-        parcel.writeInt(albumId)
-        parcel.writeString(title)
-        parcel.writeString(url)
-        parcel.writeString(thumbnailUrl)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<PhotosResponseModel> {
-        override fun createFromParcel(parcel: Parcel): PhotosResponseModel {
-            return PhotosResponseModel(parcel)
-        }
-
-        override fun newArray(size: Int): Array<PhotosResponseModel?> {
-            return arrayOfNulls(size)
-        }
-    }
 }

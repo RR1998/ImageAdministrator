@@ -1,13 +1,15 @@
 package com.example.framework.models
 
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.core.domain.PhotosCleanMapper
+import com.example.core.domain.PhotosMapper
 import com.example.core.domain.PhotosCleanModel
 
+/**
+ * PhotosEntityModel it's a data class that uses annotations from Room and creates a table from it
+ * also implements the PhotosCleanMapper to return from an entity type object to a PhotosCleanModel
+ */
 
 @Entity(tableName = "photos")
 data class PhotosEntityModel(
@@ -28,42 +30,9 @@ data class PhotosEntityModel(
     @ColumnInfo(name = "photo_thumbnail_url")
     val thumbnailUrl: String? = ""
 
-) : Parcelable, PhotosCleanMapper<PhotosCleanModel> {
+) : PhotosMapper<PhotosCleanModel> {
 
-    constructor(parcel: Parcel) : this(
-
-        parcel.readInt(),
-        parcel.readInt(),
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString()
-
-    )
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(albumId)
-        parcel.writeInt(id)
-        parcel.writeString(title)
-        parcel.writeString(url)
-        parcel.writeString(thumbnailUrl)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<PhotosEntityModel> {
-
-        override fun createFromParcel(parcel: Parcel): PhotosEntityModel {
-            return PhotosEntityModel(parcel)
-        }
-
-        override fun newArray(size: Int): Array<PhotosEntityModel?> {
-            return arrayOfNulls(size)
-        }
-    }
-
-    override fun cleaner(): PhotosCleanModel = PhotosCleanModel(
+    override fun mapper(): PhotosCleanModel = PhotosCleanModel(
         id,
         albumId,
         title,
