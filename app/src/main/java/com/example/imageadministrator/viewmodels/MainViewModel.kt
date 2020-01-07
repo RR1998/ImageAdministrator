@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.domain.PhotosCleanModel
 import com.example.core.interactors.GetPhotos
+import com.example.imageadministrator.eventhandlers.Event
 import kotlinx.coroutines.Job
 
 /**
@@ -12,7 +13,7 @@ import kotlinx.coroutines.Job
 
 class MainViewModel(var useCase: GetPhotos) : ViewModel() {
 
-    var itemClickEvent: MutableLiveData<PhotosCleanModel> = MutableLiveData()
+    var itemClickEvent: MutableLiveData<Event<PhotosCleanModel>> = MutableLiveData()
 
     private var mainViewModelJob = Job()
 

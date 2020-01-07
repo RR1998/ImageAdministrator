@@ -13,6 +13,7 @@ import com.example.imageadministrator.R
 import com.example.imageadministrator.adapter.ImageAdapter
 import com.example.imageadministrator.databaseapplication.InitialValues
 import com.example.imageadministrator.databinding.ActivityMainBinding
+import com.example.imageadministrator.eventhandlers.Event
 import com.example.imageadministrator.viewmodels.MainViewModel
 import com.example.imageadministrator.viewmodels.viewmodelfactory.FactoryMainViewModel
 
@@ -43,19 +44,20 @@ class MainActivity : AppCompatActivity() {
         viewModel.itemClickEvent.observe(this, clickObserver())
     }
 
-    private fun clickObserver() = Observer<PhotosCleanModel> {
+    private fun clickObserver() = Observer<Event<PhotosCleanModel>> { event ->
+        event.getContentIfNotHandled()?.let {
+            val detailClassIntent = Intent(
+                this,
+                DetailActivity::class.java
 
-        val detailClassIntent = Intent(
-            this,
-            DetailActivity::class.java
+            )
 
-        )
+            val bundle = Bundle()
 
-        val bundle = Bundle()
-
-        bundle.putString(VariablesObject.BUNDLE_KEY, it.url)
-        detailClassIntent.putExtras(bundle)
-        ContextCompat.startActivity(this, detailClassIntent, null)
+            bundle.putString(VariablesObject.BUNDLE_KEY, it.url)
+            detailClassIntent.putExtras(bundle)
+            ContextCompat.startActivity(this, detailClassIntent, null)
+        }
 
     }
 

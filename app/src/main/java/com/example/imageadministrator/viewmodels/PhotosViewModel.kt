@@ -3,6 +3,7 @@ package com.example.imageadministrator.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.domain.PhotosCleanModel
+import com.example.imageadministrator.eventhandlers.Event
 
 /**
  * PhotosViewModel is the class that executes the onClick method that changes the class values
@@ -11,12 +12,12 @@ import com.example.core.domain.PhotosCleanModel
 
 class PhotosViewModel(
     var photoItem: PhotosCleanModel,
-    private var clickEvent: MutableLiveData<PhotosCleanModel>
+    private var clickEvent: MutableLiveData<Event<PhotosCleanModel>>
 ) : ViewModel() {
 
     fun onClick() {
 
-        clickEvent.value = photoItem
+        clickEvent.value = Event(photoItem)
 
     }
 

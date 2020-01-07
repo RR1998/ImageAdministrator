@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.core.domain.PhotosCleanModel
 import com.example.imageadministrator.R
 import com.example.imageadministrator.databinding.ImageListBinding
+import com.example.imageadministrator.eventhandlers.Event
 import com.example.imageadministrator.viewmodels.PhotosViewModel
 
 /**
@@ -18,7 +19,7 @@ import com.example.imageadministrator.viewmodels.PhotosViewModel
 
 class ImageAdapter(
     imageList: List<PhotosCleanModel>,
-    var clickEvent: MutableLiveData<PhotosCleanModel>
+    var clickEvent: MutableLiveData<Event<PhotosCleanModel>>
 ) :
     RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
