@@ -20,24 +20,18 @@ import com.example.imageadministrator.viewmodel.PhotosViewModel
 class ImageAdapter(
     imageList: List<PhotosCleanModel>,
     var clickEvent: MutableLiveData<Event<PhotosCleanModel>>
-) :
-    RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
     private var images = imageList
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = images[position]
-        holder.bind(item)
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(images[position])
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ViewHolder(layoutInflater.inflate(R.layout.image_list, parent, false))
     }
 
-    override fun getItemCount(): Int {
-        return images.size
-    }
+    override fun getItemCount() = images.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding: ImageListBinding? = DataBindingUtil.bind(view)
