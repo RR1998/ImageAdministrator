@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.imageadministrator.R
+import com.example.imageadministrator.activity.MainActivity.Companion.BUNDLE_KEY
 import com.example.imageadministrator.databinding.DetailLayoutBinding
 import com.example.imageadministrator.viewmodel.DetailViewModel
 
@@ -25,7 +26,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
-        bundleReceived?.getString(VariablesObject.BUNDLE_KEY)
+        bundleReceived?.getString(BUNDLE_KEY)
             .let { photosUrl = it }
 
         binding = DataBindingUtil.setContentView(
