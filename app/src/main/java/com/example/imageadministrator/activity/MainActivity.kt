@@ -1,4 +1,4 @@
-package com.example.imageadministrator.activities
+package com.example.imageadministrator.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.core.domain.PhotosCleanModel
 import com.example.imageadministrator.R
 import com.example.imageadministrator.adapter.ImageAdapter
-import com.example.imageadministrator.databaseapplication.InitialValues
+import com.example.imageadministrator.ImageAdminApp
 import com.example.imageadministrator.databinding.ActivityMainBinding
-import com.example.imageadministrator.eventhandlers.Event
-import com.example.imageadministrator.viewmodels.MainViewModel
-import com.example.imageadministrator.viewmodels.viewmodelfactory.FactoryMainViewModel
+import com.example.imageadministrator.eventhandler.Event
+import com.example.imageadministrator.viewmodel.MainViewModel
+import com.example.imageadministrator.viewmodel.viewmodelfactory.FactoryMainViewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-        val viewModelFactory = FactoryMainViewModel((application as InitialValues).useCase)
+        val viewModelFactory = FactoryMainViewModel((application as ImageAdminApp).useCase)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(MainViewModel::class.java)

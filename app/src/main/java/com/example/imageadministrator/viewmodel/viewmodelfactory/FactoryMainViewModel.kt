@@ -1,9 +1,9 @@
-package com.example.imageadministrator.viewmodels.viewmodelfactory
+package com.example.imageadministrator.viewmodel.viewmodelfactory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.core.interactors.GetPhotos
-import com.example.imageadministrator.viewmodels.MainViewModel
+import com.example.imageadministrator.viewmodel.MainViewModel
 
 /**
  * FactoryMainViewModel its used to create MainViewModels

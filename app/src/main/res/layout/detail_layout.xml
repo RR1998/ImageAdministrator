@@ -3,7 +3,7 @@
     <data>
         <variable
             name="detailViewModel"
-            type="com.example.imageadministrator.viewmodels.DetailViewModel" />
+            type="com.example.imageadministrator.viewmodel.DetailViewModel" />
     </data>
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/detailed_image"

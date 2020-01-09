@@ -1,4 +1,4 @@
-package com.example.imageadministrator.activities
+package com.example.imageadministrator.activity
 
 object VariablesObject {
 

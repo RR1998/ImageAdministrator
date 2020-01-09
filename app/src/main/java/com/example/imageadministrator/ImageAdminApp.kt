@@ -1,4 +1,4 @@
-package com.example.imageadministrator.databaseapplication
+package com.example.imageadministrator
 
 import android.app.Application
 import com.example.core.interactors.GetPhotos
@@ -9,9 +9,7 @@ import com.example.framework.remote.PhotosApi
 /**
  * InitialValues is where the database and api are instantiated and can be used from other activities
  */
-
-class InitialValues : Application() {
-
+class ImageAdminApp : Application() {
 
     lateinit var database: PhotosGetDatabase
     lateinit var useCase: GetPhotos

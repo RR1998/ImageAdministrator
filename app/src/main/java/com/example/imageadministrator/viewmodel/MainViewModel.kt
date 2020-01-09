@@ -1,10 +1,10 @@
-package com.example.imageadministrator.viewmodels
+package com.example.imageadministrator.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.domain.PhotosCleanModel
 import com.example.core.interactors.GetPhotos
-import com.example.imageadministrator.eventhandlers.Event
+import com.example.imageadministrator.eventhandler.Event
 import kotlinx.coroutines.Job
 
 /**

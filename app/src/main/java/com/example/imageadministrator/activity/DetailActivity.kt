@@ -1,4 +1,4 @@
-package com.example.imageadministrator.activities
+package com.example.imageadministrator.activity
 
 import android.os.Bundle
 import android.widget.ImageView
@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.imageadministrator.R
 import com.example.imageadministrator.databinding.DetailLayoutBinding
-import com.example.imageadministrator.viewmodels.DetailViewModel
+import com.example.imageadministrator.viewmodel.DetailViewModel
 
 /**
  * DetailActivity that shows a zoomed image from the selected in the main activity

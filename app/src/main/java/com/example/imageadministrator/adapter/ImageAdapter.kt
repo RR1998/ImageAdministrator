@@ -10,8 +10,8 @@ import com.bumptech.glide.Glide
 import com.example.core.domain.PhotosCleanModel
 import com.example.imageadministrator.R
 import com.example.imageadministrator.databinding.ImageListBinding
-import com.example.imageadministrator.eventhandlers.Event
-import com.example.imageadministrator.viewmodels.PhotosViewModel
+import com.example.imageadministrator.eventhandler.Event
+import com.example.imageadministrator.viewmodel.PhotosViewModel
 
 /**
  * ImageAdapter is the class that fills the RecyclerViews to add it into the MainActivity view
