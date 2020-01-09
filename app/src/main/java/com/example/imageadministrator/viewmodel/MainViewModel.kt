@@ -9,7 +9,6 @@ import com.example.imageadministrator.eventhandler.Event
 /**
  * MainViewModel its the class that calls the useCase to fill the view
  */
-
 class MainViewModel(private var useCase: GetPhotos) : ViewModel() {
 
     var itemClickEvent: MutableLiveData<Event<PhotosCleanModel>> = MutableLiveData()
