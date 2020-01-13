@@ -23,6 +23,7 @@ class DetailActivity : AppCompatActivity() {
     private var photosUrl: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
         bundleReceived?.getString(BUNDLE_KEY)
