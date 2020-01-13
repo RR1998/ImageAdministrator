@@ -7,7 +7,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * PhotosApi its an object that returns a retrofit instance
  */
-
 object PhotosApi : GetRetrofitInterface {
 
     lateinit var retrofit: Retrofit
@@ -20,7 +19,6 @@ object PhotosApi : GetRetrofitInterface {
             .baseUrl(imageUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
         return retrofit.create(GetDataService::class.java)
     }
 }
