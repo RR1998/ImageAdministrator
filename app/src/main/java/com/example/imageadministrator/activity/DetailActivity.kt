@@ -14,7 +14,6 @@ import com.example.imageadministrator.viewmodel.DetailViewModel
 /**
  * DetailActivity that shows a zoomed image from the selected in the main activity
  */
-
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: DetailLayoutBinding
@@ -24,6 +23,7 @@ class DetailActivity : AppCompatActivity() {
     private var photosUrl: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
         bundleReceived?.getString(BUNDLE_KEY)
