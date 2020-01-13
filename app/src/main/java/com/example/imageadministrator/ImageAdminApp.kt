@@ -12,6 +12,7 @@ import org.koin.core.context.startKoin
 /**
  * InitialValues is where the database and api are instantiated and can be used from other activities
  */
+@Suppress("UNUSED_PARAMETER", "unused")
 class ImageAdminApp : Application() {
 
     override fun onCreate() {
