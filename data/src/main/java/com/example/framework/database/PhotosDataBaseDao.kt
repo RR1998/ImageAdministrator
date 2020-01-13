@@ -9,7 +9,6 @@ import com.example.framework.models.PhotosEntityModel
 /**
  * PhotosDatabaseDao implements the insert and query annotations that creates the respective query
  */
-
 @Dao
 interface PhotosDataBaseDao {
 
