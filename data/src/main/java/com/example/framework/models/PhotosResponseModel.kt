@@ -9,7 +9,6 @@ import java.io.Serializable
  * and implements the ResponseEntityInterface with the PhotosEntityModel to map the object
  * and return a PhotosEntityModel
  */
-
 class PhotosResponseModel(
     @SerializedName("id")
     val id: Int = 0,

@@ -10,7 +10,6 @@ import com.example.core.domain.PhotosCleanModel
  * PhotosEntityModel it's a data class that uses annotations from Room and creates a table from it
  * also implements the PhotosCleanMapper to return from an entity type object to a PhotosCleanModel
  */
-
 @Entity(tableName = "photos")
 data class PhotosEntityModel(
 
