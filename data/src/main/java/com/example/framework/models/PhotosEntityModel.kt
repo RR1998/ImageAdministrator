@@ -3,8 +3,8 @@ package com.example.framework.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.core.domain.PhotosMapper
 import com.example.core.domain.PhotosCleanModel
+import com.example.core.domain.PhotosMapper
 
 /**
  * PhotosEntityModel it's a data class that uses annotations from Room and creates a table from it
