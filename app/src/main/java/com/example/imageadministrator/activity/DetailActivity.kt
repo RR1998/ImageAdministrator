@@ -23,7 +23,6 @@ class DetailActivity : AppCompatActivity() {
     private var photosUrl: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         val bundleReceived = intent.extras
         bundleReceived?.getString(BUNDLE_KEY)
@@ -40,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setImageUrl(view: ImageView, detailUrl: String?) =
-        Glide.with(view.context).load(detailUrl).into(view)
-
+        Glide.with(view.context).load(detailUrl)
+            .into(view)
 }
 

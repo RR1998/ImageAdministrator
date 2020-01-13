@@ -39,7 +39,7 @@ class ModelSourceRepositoryImplementation(
                 response: Response<List<PhotosResponseModel>>
             ) {
                 liveData.value = response.body()
-                liveData.value = liveData.value?.subList(LOWER_SUBLIST_LIMIT, HIGHER_SUBLIST_LIMIT)
+                liveData.value = liveData.value?.subList(0, 24)
                 liveData.value?.forEach {
                     cleanList.add(it.mapper().mapper())
                 }
@@ -63,10 +63,5 @@ class ModelSourceRepositoryImplementation(
                 database.insert(it.mapper())
             }
         }
-    }
-
-    companion object {
-        const val LOWER_SUBLIST_LIMIT = 0
-        const val HIGHER_SUBLIST_LIMIT = 0
     }
 }

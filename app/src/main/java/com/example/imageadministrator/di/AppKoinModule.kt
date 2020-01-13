@@ -1,5 +1,3 @@
-@file:Suppress("SpellCheckingInspection", "SpellCheckingInspection")
-
 package com.example.imageadministrator.di
 
 import com.example.core.interactors.GetPhotos

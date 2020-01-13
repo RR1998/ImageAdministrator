@@ -15,6 +15,7 @@ class PhotosViewModel(
 ) : ViewModel() {
 
     fun onClick() {
+
         clickEvent.value = Event(photoItem)
     }
 }

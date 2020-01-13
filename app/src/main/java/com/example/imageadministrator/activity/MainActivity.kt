@@ -15,7 +15,6 @@ import com.example.imageadministrator.eventhandler.Event
 import com.example.imageadministrator.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

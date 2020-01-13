@@ -19,29 +19,24 @@ abstract class PhotosGetDatabase : RoomDatabase() {
         private const val DATABASE_NAME = "photos_database"
 
         @Volatile
-        private var INSTANCE: PhotosGetDatabase? = null
+        private var databaseInstance: PhotosGetDatabase? = null
 
         fun getInstance(context: Context): PhotosGetDatabase {
 
             synchronized(this) {
 
-                var instance = INSTANCE
+                if (databaseInstance == null) {
 
-                if (instance == null) {
-
-                    instance = Room.databaseBuilder(
+                    databaseInstance = Room.databaseBuilder(
                         context.applicationContext,
                         PhotosGetDatabase::class.java,
                         DATABASE_NAME
                     )
                         .fallbackToDestructiveMigration()
                         .build()
-
-                    INSTANCE = instance
-
                 }
 
-                return instance
+                return databaseInstance as PhotosGetDatabase
             }
         }
     }
