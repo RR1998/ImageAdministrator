@@ -6,5 +6,6 @@ package com.example.core.domain
  */
 
 interface PhotosMapper<T : Any> {
+
     fun mapper(): T
 }

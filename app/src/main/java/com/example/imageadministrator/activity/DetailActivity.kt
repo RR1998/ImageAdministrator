@@ -39,9 +39,8 @@ class DetailActivity : AppCompatActivity() {
         setImageUrl(binding.detailedImage, photosUrl)
     }
 
-    private fun setImageUrl(view: ImageView, detailUrl: String?) {
-        Glide.with(view.context).load(detailUrl)
-            .into(view)
-    }
+    private fun setImageUrl(view: ImageView, detailUrl: String?) =
+        Glide.with(view.context).load(detailUrl).into(view)
+
 }
 

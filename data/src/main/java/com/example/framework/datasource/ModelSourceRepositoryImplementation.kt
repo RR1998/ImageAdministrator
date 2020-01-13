@@ -39,7 +39,7 @@ class ModelSourceRepositoryImplementation(
                 response: Response<List<PhotosResponseModel>>
             ) {
                 liveData.value = response.body()
-                liveData.value = liveData.value?.subList(0, 24)
+                liveData.value = liveData.value?.subList(LOWER_SUBLIST_LIMIT, HIGHER_SUBLIST_LIMIT)
                 liveData.value?.forEach {
                     cleanList.add(it.mapper().mapper())
                 }
@@ -57,10 +57,16 @@ class ModelSourceRepositoryImplementation(
     }
 
     suspend fun savePhotos(cleanList: List<PhotosResponseModel>?) {
+
         withContext(Dispatchers.IO) {
             cleanList?.forEach {
                 database.insert(it.mapper())
             }
         }
+    }
+
+    companion object {
+        const val LOWER_SUBLIST_LIMIT = 0
+        const val HIGHER_SUBLIST_LIMIT = 0
     }
 }

@@ -16,6 +16,8 @@ abstract class PhotosGetDatabase : RoomDatabase() {
 
     companion object {
 
+        private const val DATABASE_NAME = "photos_database"
+
         @Volatile
         private var INSTANCE: PhotosGetDatabase? = null
 
@@ -30,7 +32,7 @@ abstract class PhotosGetDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         PhotosGetDatabase::class.java,
-                        "photos_database"
+                        DATABASE_NAME
                     )
                         .fallbackToDestructiveMigration()
                         .build()

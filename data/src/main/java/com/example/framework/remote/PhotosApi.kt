@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object PhotosApi : GetRetrofitInterface {
 
-    lateinit var retrofit: Retrofit
+    private lateinit var retrofit: Retrofit
 
     private const val imageUrl: String = "https://jsonplaceholder.typicode.com/"
 

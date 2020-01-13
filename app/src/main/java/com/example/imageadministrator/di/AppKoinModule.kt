@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection", "SpellCheckingInspection")
+
 package com.example.imageadministrator.di
 
 import com.example.core.interactors.GetPhotos
@@ -19,7 +21,7 @@ import org.koin.dsl.module
  */
 val appModule = module {
 
-    viewModel { MainViewModel(useCase = get()) }
+    viewModel { MainViewModel(get()) }
 }
 
 /**
