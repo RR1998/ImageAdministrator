@@ -19,7 +19,7 @@ class MainViewModelTest {
     var rule: TestRule = InstantTaskExecutorRule()
 
     @Before
-    fun setup(){
+    fun setup() {
         val photosList = mutableListOf<PhotosCleanModel>()
         val photo = PhotosCleanModel()
         val photosLiveDataList = MutableLiveData<List<PhotosCleanModel>>()
@@ -32,7 +32,7 @@ class MainViewModelTest {
         photosLiveDataList.value = photosList
         useCase = Mockito.mock(GetPhotos::class.java)
         mainViewModelInstance = MainViewModel(useCase)
-        Mockito.`when`(useCase.invoke()).thenReturn(photosLiveDataList)
+        Mockito.`when`(useCase()).thenReturn(photosLiveDataList)
     }
 
 

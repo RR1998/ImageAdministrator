@@ -11,7 +11,7 @@ import com.example.imageadministrator.eventhandler.Event
  */
 class PhotosViewModel(
     var photoItem: PhotosCleanModel,
-    private var clickEvent: MutableLiveData<Event<PhotosCleanModel>>
+    var clickEvent: MutableLiveData<Event<PhotosCleanModel>>
 ) : ViewModel() {
 
     fun onClick() {
