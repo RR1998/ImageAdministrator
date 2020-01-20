@@ -11,7 +11,7 @@ import com.example.imageadministrator.eventhandler.Event
  */
 class MainViewModel(private var useCase: GetPhotos) : ViewModel() {
 
-    var itemClickEvent: MutableLiveData<Event<PhotosCleanModel>> = MutableLiveData()
+    val itemClickEvent: MutableLiveData<Event<PhotosCleanModel>> = MutableLiveData()
 
-    fun getListPhoto(): MutableLiveData<List<PhotosCleanModel>> = useCase.invoke()
+    fun getListPhoto(): MutableLiveData<List<PhotosCleanModel>> = useCase()
 }

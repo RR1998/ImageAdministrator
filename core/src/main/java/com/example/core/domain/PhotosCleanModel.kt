@@ -6,13 +6,13 @@ package com.example.core.domain
  */
 class PhotosCleanModel(
 
-    val id: Int = 0,
+    var id: Int = 0,
 
     var albumId: Int = 0,
 
-    val title: String? = "",
+    var title: String? = "",
 
-    val url: String? = "",
+    var url: String? = "",
 
-    val thumbnailUrl: String? = ""
+    var thumbnailUrl: String? = ""
 )
